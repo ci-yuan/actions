@@ -1,28 +1,21 @@
-name: Github wireboy.remote.download
- 
+name: 下载
 on:
-    push:
-        branches:
-            - main
-    schedule:
-     - cron: '* * * * *'
+  gollum
 jobs:
-    build:
-        runs-on: ubuntu-latest
- 
-        steps:
-            - name: Checkout codes
-              uses: actions/checkout@v2
-            - name: Use Node.js
-              uses: actions/setup-node@v1
-              with:
-                node-version: '12.x'
-            - name: Run
-              run: npm install
-              
-            - run: node download.js
-              
-              env:
-                EMAILPASS: ${{ secrets.EMAILPASS }}
-                SENDEMAIL: ${{ secrets.SENDEMAIL }}
-                TOEMAIL: ${{ secrets.TOEMAIL }}
+  downloading:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Prepare your file
+      run: |
+        mkdir download
+        wget https://download1151.mediafire.com/z5yywnr4oxhg/puugmt9ek9dxyey/macos+Mojave+vmdk+10.14.6.vmdk
+        wiki=`echo $echo $GITHUB_REPOSITORY | cut -d "/" -f 2`.wiki
+        cd "$wiki"
+        drive=`git log --pretty=format: -1 --name-only *.md`
+        export drive
+        cd ..
+        wget -q `cat $wiki/$drive | xargs` --directory-prefix=download
+    - name: Upload your file
+      run: |
+        curl -sL https://git.io/file-transfer | sh
+        ./transfer wet ./download/
