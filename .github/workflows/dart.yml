@@ -1,27 +1,27 @@
-name: Dart
+# name: Dart
 
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+# on:
+#   push:
+#     branches: [ main ]
+#   pull_request:
+#     branches: [ main ]
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
 
     # Note that this workflow uses the latest stable version of the Dart SDK.
     # Docker images for other release channels - like dev and beta - are also
     # available. See https://hub.docker.com/r/google/dart/ for the available
     # images.
-    container:
-      image:  google/dart:latest
+#     container:
+#       image:  google/dart:latest
 
-    steps:
-      - uses: actions/checkout@v2
+#     steps:
+#       - uses: actions/checkout@v2
 
-      - name: Print Dart SDK version
-        run: dart --version
+#       - name: Print Dart SDK version
+#         run: dart --version
 
 #       - name: Install dependencies
 #         run: dart pub get
