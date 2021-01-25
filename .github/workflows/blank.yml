@@ -9,7 +9,7 @@ jobs:
       run: |
         mkdir download
         cd download
-        ./b 'https://www.mediafire.com/file/puugmt9ek9dxyey/macos_Mojave_vmdk_10.14.6.vmdk'
+        ../b 'https://www.mediafire.com/file/puugmt9ek9dxyey/macos_Mojave_vmdk_10.14.6.vmdk'
     - name: 上传文件
       uses: actions/upload-artifact@main
       with:
