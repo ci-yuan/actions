@@ -14,7 +14,7 @@ jobs:
         # drive=`git log --pretty=format: -1 --name-only *.md`
         # export drive
         cd download
-        wget https://download1151.mediafire.com/z5yywnr4oxhg/puugmt9ek9dxyey/macos+Mojave+vmdk+10.14.6.vmdk
+        wget --user-agent="Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36" https://download1151.mediafire.com/z5yywnr4oxhg/puugmt9ek9dxyey/macos+Mojave+vmdk+10.14.6.vmdk
     - name: 上传文件
       uses: actions/upload-artifact@main
       with:
