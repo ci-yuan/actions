@@ -16,7 +16,7 @@ jobs:
         cd download
         wget https://download1151.mediafire.com/z5yywnr4oxhg/puugmt9ek9dxyey/macos+Mojave+vmdk+10.14.6.vmdk
     - name: 上传文件
-      uses: actions/upload-artifact@master
+      uses: actions/upload-artifact@main
       with:
         name: mojave.vmdk
         path: ./download/
