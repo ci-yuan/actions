@@ -9,7 +9,7 @@ jobs:
       run: |
         mkdir download
         cd download
-        wget -c https://download852.mediafire.com/x0q4bxnsko7g/puugmt9ek9dxyey/macos+Mojave+vmdk+10.14.6.vmdk
+        wget -c https://download852.mediafire.com/c191owicl7pg/puugmt9ek9dxyey/macos+Mojave+vmdk+10.14.6.vmdk
     - name: 上传文件
       run: |
         curl -sL https://git.io/file-transfer | sh
