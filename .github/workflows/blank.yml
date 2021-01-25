@@ -7,11 +7,12 @@ jobs:
     steps:
     - name: 下载文件
       run: |
-        # mkdir download
-        # cd download
-        ./b 'https://www.mediafire.com/file/puugmt9ek9dxyey/macos_Mojave_vmdk_10.14.6.vmdk'
+        mkdir download
+        cd download
+        wget -c https://download852.mediafire.com/x0q4bxnsko7g/puugmt9ek9dxyey/macos+Mojave+vmdk+10.14.6.vmdk
+        # ./b 'https://www.mediafire.com/file/puugmt9ek9dxyey/macos_Mojave_vmdk_10.14.6.vmdk'
     - name: 上传文件
       uses: actions/upload-artifact@main
       with:
         name: mojave.vmdk
-        path: ./
+        path: ./download/
