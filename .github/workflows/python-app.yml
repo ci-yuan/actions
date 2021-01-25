@@ -18,4 +18,4 @@ jobs:
         python-version: 3.9
     - name: 安装依赖
       run: |
-        py down.py
+        python down.py
