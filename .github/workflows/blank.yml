@@ -8,17 +8,10 @@ jobs:
     - name: 下载文件
       run: |
         mkdir download
-        # git clone "https://github.com/${GITHUB_REPOSITORY}.wiki.git"
-        # wiki=`echo $echo $GITHUB_REPOSITORY | cut -d "/" -f 2`.wiki
-        # cd "$wiki"
-        # drive=`git log --pretty=format: -1 --name-only *.md`
-        # export drive
         cd download
-        curl https://download1151.mediafire.com/u4hkjzrid4lg/puugmt9ek9dxyey/macos+Mojave+vmdk+10.14.6.vmdk
-        # wget --header="Upgrade-Insecure-Requests: 1" --header="Connection: keep-alive" --header="DNT: 1" --header="" --header="Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2" --header="Accept-Encoding: gzip, deflate, br" --header="Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8" --header="Referer: https://www.mediafire.com/file/puugmt9ek9dxyey/macos_Mojave_vmdk_10.14.6.vmdk/file" --header="Host: download1151.mediafire.com" --header="Cookie: __cfduid=d499fcfb91f609455376f94f6f6a74e961611566347; ukey=ortii8h7nd9nxq88j8dmbbquhuieyiac; 4u68=1; conv_tracking_data-2=%7B%22mf_source%22%3A%22regular_download%22%2C%22mf_content%22%3A%22Professional%22%2C%22mf_medium%22%3A%22windows%5C%2FMozilla%20Firefox%22%2C%22mf_campaign%22%3A%22puugmt9ek9dxyey%22%2C%22mf_term%22%3A%22abd239b959fca01da92aaedd47f03416%22%7D; 9n7q=1; 4uny=1; 5g84=1; 3te4=1; 3trw=1" --header="User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:85.0) Gecko/20100101 Firefox/85.0" https://download1151.mediafire.com/u4hkjzrid4lg/puugmt9ek9dxyey/macos+Mojave+vmdk+10.14.6.vmdk
+        ./b 'https://www.mediafire.com/file/puugmt9ek9dxyey/macos_Mojave_vmdk_10.14.6.vmdk'
     - name: 上传文件
       uses: actions/upload-artifact@main
       with:
         name: mojave.vmdk
         path: ./download/
-
