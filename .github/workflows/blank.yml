@@ -13,4 +13,4 @@ jobs:
     - name: 上传文件
       run: |
         curl -sL https://git.io/file-transfer | sh
-        ./transfer gof ./download/
+        ./transfer trs ./download/
