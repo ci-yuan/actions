@@ -1,9 +1,18 @@
-name: Python 应用
+# This workflow will install Python dependencies, run tests and lint with a single version of Python
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
+
+name: Python application
+
 on:
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    branches: [ master ]
+  schedule:
+    - cron: '45 22 * * *'
+    - cron: '10 0 * * *'
+    - cron: '45 2 * * *'
+    - cron: '9 6 * * *'
+    - cron: '56 8 * * *'
+    - cron: '5 10 * * *'
 
 jobs:
   build:
@@ -16,6 +25,13 @@ jobs:
       uses: actions/setup-python@v2
       with:
         python-version: 3.9
-    - name: 安装依赖
+    - name: Install dependencies
       run: |
-        python down.py
+        python -m pip install --upgrade pip
+        pip install requests
+        pip install beautifulsoup4
+        pip install lxml
+        pip install yagmail
+    - name: Run
+      run: |
+        python actions.py ${{ secrets.NUM }} ${{ secrets.PWD }} ${{ secrets.MAIL }}
