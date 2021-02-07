@@ -202,7 +202,7 @@ if __name__ == '__main__':
         title = "Report Fail"
 
     # send mail
-    with open(r'mail.txt', 'r+', encoding='utf-8') as f_2:
-        send_con = f_2.read()
-        send_email(title, send_con)
-        f_2.truncate(0)
+#     with open(r'mail.txt', 'r+', encoding='utf-8') as f_2:
+#         send_con = f_2.read()
+#         send_email(title, send_con)
+#         f_2.truncate(0)
