@@ -1,6 +1,6 @@
-name: 下载
+name: 填报体温
 on:
-  gollum
+  status
 jobs:
   downloading:
     runs-on: ubuntu-latest
