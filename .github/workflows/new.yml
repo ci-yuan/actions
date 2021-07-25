@@ -5,8 +5,9 @@ jobs:
   downloading:
     runs-on: ubuntu-latest
     steps:
+    - name: Check out Git repository
+      uses: actions/checkout@v2
     - name: 运行
       run: |
-        ls
-        #./daily_health_reqwest
+        ./daily_health_reqwest
       
