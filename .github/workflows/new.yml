@@ -7,5 +7,6 @@ jobs:
     steps:
     - name: 运行
       run: |
+        ls
         ./daily_health_reqwest
       
