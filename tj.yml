@@ -5,6 +5,6 @@ jobs:
   downloading:
     runs-on: ubuntu-latest
     steps:
-    - name: 运行
+    - name: 开始执行
       run: |
         ./daily_health_reqwest
