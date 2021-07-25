@@ -1,5 +1,6 @@
 name: 填报体温
-on: status
+on: 
+  push
 jobs:
   downloading:
     runs-on: ubuntu-latest
