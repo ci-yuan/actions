@@ -8,5 +8,5 @@ jobs:
     - name: 运行
       run: |
         ls
-        ./daily_health_reqwest
+        #./daily_health_reqwest
       
