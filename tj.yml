@@ -1,10 +1,10 @@
-name: 填报体温
-on: 
-  push
-jobs:
-  downloading:
-    runs-on: ubuntu-latest
-    steps:
-    - name: 开始执行
-      run: |
-        ./daily_health_reqwest
+# name: 填报体温
+# on: 
+#   push
+# jobs:
+#   downloading:
+#     runs-on: ubuntu-latest
+#     steps:
+#     - name: 开始执行
+#       run: |
+#         ./daily_health_reqwest
