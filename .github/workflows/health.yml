@@ -5,6 +5,7 @@ on:
     - cron: '20 3 * * *'
     - cron: '30 6 * * *'
     - cron: '5 9 * * *'
+  push:
 jobs:
   downloading:
     runs-on: ubuntu-latest
