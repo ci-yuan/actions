@@ -2,10 +2,10 @@ name: 填报体温
 on: 
   schedule:
     - cron: '45 22 * * *'
-    - cron: '10 00 * * *'
-    - cron: '20 3 * * *'
+    - cron: '10 01 * * *'
+#     - cron: '20 3 * * *'
     - cron: '30 5 * * *'
-    - cron: '5 9 * * *'
+    - cron: '5 8 * * *'
   push:
 jobs:
   downloading:
