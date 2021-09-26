@@ -1,0 +1,51 @@
+name: Upload Code
+on:
+  watch:
+    types: [started]
+
+jobs:
+  build:
+    if: github.event.repository.owner.id == github.event.sender.id
+    runs-on: ubuntu-18.04
+
+    steps:
+        # 安装依赖包
+      - name: Install required packages
+        run: sudo apt install git-core curl tree
+
+        # 安装 repo
+      - name: Install Repo
+        run: |
+          mkdir ~/bin
+          curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
+          chmod a+x ~/bin/repo
+
+      - name: Initialize a Repo client
+        run: |
+          # 添加环境变量 ~/bin
+          PATH=~/bin:$PATH
+          mkdir workspace
+          cd workspace
+          echo "::set-output name=pwd::$(pwd)"
+          git config --global user.name "ciyuan"
+          git config --global user.email "msciyuan@outlook.com"
+          repo init --depth=1 -u https://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp -b twrp-11
+        id: pwd
+
+        # 同步源
+      - name: Repo sync
+        run: |
+          PATH=~/bin:$PATH
+          cd workspace
+          repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags
+          ls -al
+
+      - name: Upload Code
+        uses: softprops/action-gh-release@v1
+        with:
+          files: workspace/out/target/product/${{ steps.var.outputs.device_code }}/recovery.img
+          name: ${{ steps.var.outputs.date }} ${{ steps.var.outputs.device_code }} by ${{ steps.var.outputs.git_username }}
+          tag_name: ${{ github.run_id }}
+          body: Android Third-Party Recovery built by ${{ steps.var.outputs.git_username }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.WORK }}

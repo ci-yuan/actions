@@ -1,0 +1,35 @@
+name: Build on Tag
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout kernel source
+      uses: actions/checkout@v2
+
+    - name: Checkout zipper
+      uses: actions/checkout@v2
+      with:
+        repository: lemniskett/AnyKernel3
+        path: zipper
+
+    - name: 构建安卓内核
+      uses: lemniskett/android-kernel-actions@master
+      id: build
+      env:
+        NAME: chopin
+      with:
+        arch: arm64
+        compiler: clang/11
+        defconfig: vince_defconfig
+        image: Image.gz-dtb
+
+    - name: 发布到 release
+      uses: ncipollo/release-action@v1
+      with:
+        artifacts: ${{ steps.build.outputs.outfile }}
+        token: ${{ secrets.GITHUB_TOKEN }}
