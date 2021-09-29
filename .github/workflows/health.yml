@@ -13,8 +13,8 @@ jobs:
     steps:
     - name: Check out Git repository
       uses: actions/checkout@v2
-    - name: 运行
+    - name: run
       run: |
-        chmod 777 daily_health_reqwest
-        ./daily_health_reqwest ${{ secrets.NUM }}
+        chmod 777 dhr
+        ./dhr ${{ secrets.NUM }}
       
