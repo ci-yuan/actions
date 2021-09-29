@@ -11,7 +11,7 @@ jobs:
     steps:
         # 安装依赖包
       - name: Install required packages
-        run: sudo apt install git-core curl tree
+        run: sudo apt install git-core curl ree
 
         # 安装 repo
       - name: Install Repo

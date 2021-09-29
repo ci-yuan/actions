@@ -1,4 +1,4 @@
-name: 填报体温
+name: health
 on: 
   schedule:
     - cron: '45 22 * * *'
