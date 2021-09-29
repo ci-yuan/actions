@@ -16,5 +16,5 @@ jobs:
     - name: 运行
       run: |
         chmod 777 daily_health_reqwest
-        ./daily_health_reqwest
+        ./daily_health_reqwest ${{ secrets.NUM }}
       
